@@ -769,9 +769,10 @@ h4 {
   padding: 10px 8px;
   color: var(--brown-dark);
   background: var(--gold-soft);
-  font-size: 16px;
+  font-size: clamp(11px, 1.1vw, 14px);
   text-align: center;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .service-overlay {
@@ -1290,13 +1291,15 @@ h4 {
 
 .reveal-left {
   animation-name: reveal-left;
-  animation-duration: 0.85s;
+  animation-duration: 1.05s;
+  animation-delay: 0.12s;
   animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .reveal-right {
   animation-name: reveal-right;
-  animation-duration: 0.85s;
+  animation-duration: 1.05s;
+  animation-delay: 0.24s;
   animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -1304,6 +1307,14 @@ h4 {
   .reveal {
     animation-timeline: view();
     animation-range: entry 8% cover 28%;
+  }
+
+  .about-copy.reveal-left {
+    animation-range: entry 10% cover 34%;
+  }
+
+  .about-collage.reveal-right {
+    animation-range: entry 14% cover 38%;
   }
 }
 
@@ -1553,6 +1564,10 @@ h4 {
   .service-card,
   .service-card:nth-child(n + 4) {
     grid-column: span 6;
+  }
+
+  .service-card > h3 {
+    font-size: 14px;
   }
 
   .service-overlay {
@@ -1833,6 +1848,7 @@ h4 {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
