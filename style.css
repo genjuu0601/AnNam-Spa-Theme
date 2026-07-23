@@ -1124,73 +1124,212 @@ h4 {
 }
 
 .testimonials-section {
-  background: var(--white) url("assets/images/bg-footer1-1.jpg") center / cover no-repeat;
+  overflow: hidden;
+  padding: 54px 0 90px;
+  scroll-margin-top: 110px;
+  background: var(--white) url("assets/images/bg-footer1-1.jpg") left bottom / cover no-repeat;
 }
 
-.tripadvisor-summary {
+.testimonials-inner {
+  width: min(calc(100% - 40px), 1180px);
+}
+
+.testimonials-heading {
+  margin-bottom: 44px;
+}
+
+.testimonials-heading h2 {
+  color: var(--brown);
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 32px;
+  text-wrap: balance;
+}
+
+.testimonials-layout {
   display: grid;
-  grid-template-columns: 60px 1fr auto;
-  align-items: center;
-  max-width: 930px;
-  margin: 0 auto 35px;
-  padding: 18px 25px;
-  border-top: 1px solid #e4d8ce;
-  border-bottom: 1px solid #e4d8ce;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.trip-mark {
-  color: #00a680;
-  font-size: 42px;
-}
-
-.tripadvisor-summary strong,
-.tripadvisor-summary span {
-  display: block;
-}
-
-.tripadvisor-summary span {
-  color: #00a680;
-  font-size: 14px;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
+  align-items: start;
   gap: 25px;
 }
 
-.review-card {
-  padding: 28px;
-  border: 1px solid #e5d5c8;
-  border-radius: 30px 0 30px 0;
-  background: rgba(255, 255, 255, 0.94);
-  text-align: center;
+.tripadvisor-summary {
+  padding-top: 2px;
 }
 
+.tripadvisor-overview {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  align-items: start;
+  gap: 15px;
+}
+
+.tripadvisor-branch {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.tripadvisor-copy strong {
+  display: block;
+  color: #111;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.tripadvisor-rating {
+  width: 100px;
+  height: auto;
+  margin: 7px 0 3px;
+}
+
+.tripadvisor-copy p {
+  margin-bottom: 0;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tripadvisor-button {
+  margin: 18px auto 0;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.reviews-carousel {
+  min-width: 0;
+}
+
+.reviews-carousel:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 5px;
+}
+
+.reviews-viewport {
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.reviews-viewport.is-grabbing {
+  cursor: grabbing;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 25px;
+  will-change: transform;
+  transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reviews-track.is-dragging {
+  transition: none;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc((100% - 50px) / 3);
+  min-width: 0;
+  min-height: 232px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: left;
+}
+
+.review-card,
 .review-card img {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 13px;
+  -webkit-user-drag: none;
+}
+
+.review-header {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.review-header > img {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .review-card .stars {
-  color: var(--gold);
-  font-size: 16px;
+  color: var(--brown);
+  font-size: 18px;
+  line-height: 1;
 }
 
 .review-card h3 {
-  margin: 5px 0 12px;
-  color: var(--brown);
-  font-size: 20px;
+  margin: 3px 0 0;
+  color: #111;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+  word-break: keep-all;
 }
 
 .review-card p {
-  margin-bottom: 0;
-  color: var(--muted);
-  font-size: 14px;
+  margin: 14px 0 20px 62px;
+  overflow: hidden;
+  color: #1f1a17;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+.review-card > a {
+  margin: auto 0 8px 62px;
+  color: #7d160f;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.review-card > a:hover {
+  color: var(--brown);
+  text-decoration: underline;
+}
+
+.reviews-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.reviews-dots button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid #c9b5a4;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.reviews-dots button:hover,
+.reviews-dots button:focus-visible {
+  border-color: var(--brown);
+}
+
+.reviews-dots button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.reviews-dots button.is-active {
+  border-color: var(--brown);
+  background: var(--brown);
 }
 
 .branches-section {
@@ -1694,9 +1833,27 @@ h4 {
     font-size: 14px;
   }
 
-  .commitment-grid,
-  .reviews-grid {
+  .commitment-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .tripadvisor-summary {
+    width: min(100%, 360px);
+    margin: 0 auto;
+  }
+
+  .reviews-carousel {
+    width: min(100%, 620px);
+    margin: 0 auto;
+  }
+
+  .review-card {
+    flex-basis: 100%;
   }
 
   .renewal-banner {
@@ -1868,7 +2025,6 @@ h4 {
   }
 
   .commitment-grid,
-  .reviews-grid,
   .branches-grid,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1946,14 +2102,26 @@ h4 {
     font-size: 23px;
   }
 
-  .tripadvisor-summary {
-    grid-template-columns: 48px 1fr;
-    padding: 15px 10px;
+  .testimonials-section {
+    padding: 48px 0 65px;
   }
 
-  .tripadvisor-summary .button {
-    grid-column: 1 / -1;
-    margin-top: 15px;
+  .testimonials-heading h2 {
+    font-size: 24px;
+  }
+
+  .tripadvisor-overview {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .tripadvisor-branch {
+    width: 72px;
+    height: 72px;
+  }
+
+  .review-card p,
+  .review-card > a {
+    margin-left: 0;
   }
 
   .branches-grid {
