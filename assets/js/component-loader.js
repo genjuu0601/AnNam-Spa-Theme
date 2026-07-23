@@ -2,7 +2,7 @@ const componentSlots = document.querySelectorAll("[data-component]");
 
 async function loadComponent(slot) {
   const name = slot.dataset.component;
-  const response = await fetch(`components/${name}.html`);
+  const response = await fetch(`components/${name}.html`, { cache: "no-store" });
 
   if (!response.ok) {
     throw new Error(`Không thể tải component: ${name}`);

@@ -680,14 +680,14 @@ h4 {
 
 .services-section {
   color: var(--white);
-  background: var(--brown) url("assets/images/bg-dichvu-annam-1.jpg") center / cover fixed;
+  background: #a9866d url("assets/images/bg-dichvu-annam-1.jpg") center / cover fixed;
 }
 
 .services-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(91, 40, 7, 0.88);
+  background: rgba(169, 134, 109, 0.94);
 }
 
 .services-section > .container {
@@ -833,15 +833,45 @@ h4 {
 }
 
 .spa-intro {
-  max-width: 790px;
-  margin: 76px auto 36px;
-  text-align: center;
+  margin: 76px 0 42px;
+  color: var(--white);
+  text-align: left;
 }
 
 .spa-intro h2 {
-  margin-bottom: 12px;
-  color: var(--gold-soft);
-  font-size: 26px;
+  margin-bottom: 44px;
+  color: var(--white);
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 3px 3px 7px rgba(58, 20, 0, 0.65);
+  text-transform: uppercase;
+}
+
+.spa-intro h2::after {
+  content: "";
+  display: block;
+  width: 116px;
+  height: 25px;
+  margin: 12px auto 0;
+  background: url("assets/images/LINE-vang.png") center / contain no-repeat;
+}
+
+.spa-intro p {
+  margin-bottom: 22px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.spa-intro strong {
+  font-weight: 700;
+}
+
+.spa-intro p:last-child {
+  margin-bottom: 0;
 }
 
 .space-gallery {
@@ -1303,6 +1333,13 @@ h4 {
   animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
+.reveal-up {
+  animation-name: reveal-up;
+  animation-duration: 0.95s;
+  animation-delay: 0.1s;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
 @supports (animation-timeline: view()) {
   .reveal {
     animation-timeline: view();
@@ -1315,6 +1352,10 @@ h4 {
 
   .about-collage.reveal-right {
     animation-range: entry 14% cover 38%;
+  }
+
+  .spa-intro.reveal-up {
+    animation-range: entry 10% cover 34%;
   }
 }
 
@@ -1336,6 +1377,11 @@ h4 {
 @keyframes reveal-right {
   from { opacity: 0; transform: translateX(42px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 1528px) {
@@ -1729,7 +1775,12 @@ h4 {
   }
 
   .spa-intro h2 {
+    margin-bottom: 32px;
     font-size: 22px;
+  }
+
+  .spa-intro p {
+    font-size: 14px;
   }
 
   .commitment-grid,
